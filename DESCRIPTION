@@ -1,0 +1,23 @@
+Package: xcms
+Version: 1.46.0
+Date: 2015-09-17
+Title: LC/MS and GC/MS Data Analysis
+Author: Colin A. Smith <csmith@scripps.edu>,
+        Ralf Tautenhahn <rtautenh@gmail.com>,
+        Steffen Neumann <sneumann@ipb-halle.de>,
+	Paul Benton <hpbenton@scripps.edu>,	
+	Christopher Conley <cjconley@ucdavis.edu>,
+	Johannes Rainer <Johannes.Rainer@eurac.edu>
+Maintainer: Steffen Neumann <sneumann@ipb-halle.de>
+Depends: R (>= 2.14.0), methods, mzR (>= 1.1.6), BiocGenerics, ProtGenerics, Biobase
+Imports: lattice, RColorBrewer
+Suggests: faahKO, msdata, ncdf, multtest, rgl, MassSpecWavelet (>= 1.5.2), RANN, RUnit, parallel
+Enhances: Rgraphviz, Rmpi, XML
+Description: Framework for processing and visualization of
+        chromatographically separated and single-spectra mass spectral data. Imports from
+        AIA/ANDI NetCDF, mzXML, mzData and mzML files. Preprocesses data for
+        high-throughput, untargeted analyte profiling.
+License: GPL (>= 2) + file LICENSE
+URL: http://metlin.scripps.edu/download/ and https://github.com/sneumann/xcms
+BugReports: https://github.com/sneumann/xcms/issues/new
+biocViews: MassSpectrometry, Metabolomics
