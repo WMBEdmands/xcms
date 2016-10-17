@@ -1,0 +1,166 @@
+useDynLib(xcms)
+
+import("methods")
+importFrom("ProtGenerics", "peaks")
+importFrom("BiocGenerics", "updateObject")
+import("Biobase")
+importFrom("graphics", "plot", "image", "boxplot")
+importFrom("mzR", "peaks", "close", "openMSfile", "header")
+importFrom("lattice", "levelplot", "panel.rect", "panel.levelplot")
+importFrom("plyr", "rbind.fill")
+import("RColorBrewer")
+import("BiocParallel")
+
+importClassesFrom("S4Vectors", "Rle")
+importFrom("S4Vectors", "split")
+
+## Additional imports proposed by R CMD check:
+importFrom("graphics", "abline", "barplot", "close.screen", "hist",
+           "identify", "layout", "legend", "lines", "par", "plot.new",
+           "plot.window", "points", "screen", "split.screen",
+           "strwidth", "text", "title")
+importFrom("grDevices", "col2rgb", "colorRampPalette", "dev.cur",
+           "dev.list", "dev.off", "dev.set", "palette", "pdf", "png",
+           "rainbow", "rgb", "terrain.colors")
+importFrom("stats", "aov", "approx", "convolve", "cor", "deriv3",
+           "dist", "fft", "fitted", "lm", "loess", "lsfit", "median",
+           "na.omit", "nextn", "nls", "predict", "pt", "quantile",
+           "runmed", "sd", "stepfun", "weighted.mean", "density")
+importFrom("utils", "flush.console", "head", "object.size",
+           "packageVersion", "read.csv", "tail", "write.csv",
+           "write.table")
+
+## New imports from packages moved from Suggests to Imports:
+importFrom("multtest", "mt.teststat")
+importFrom("RANN", "nn2")
+importFrom("MassSpecWavelet", "peakDetectionCWT", "tuneInPeakInfo")
+
+export(
+       "etg",
+       "medianFilter",
+       "plotQC",
+       "retexp",
+       "specNoise",
+       "specPeaks",
+       "SSgauss",
+       "msn2xcmsRaw",
+       "verify.mzQuantML",
+       "xcmsRaw",
+       "xcmsSet",
+       "xcmsFragments",
+       "xcmsPapply"
+       )
+
+S3method(plot, xcmsEIC)
+
+S3method(split, xcmsSet)
+S3method(c, xcmsSet)
+
+S3method(split, xcmsRaw)
+
+exportClasses(
+              "xcmsEIC",
+              "xcmsPeaks",
+              "xcmsRaw",
+              "xcmsSet",
+              "xcmsFragments",
+              "xcmsSource",
+              "xcmsFileSource"
+              )
+
+exportMethods(
+              "[",
+              "$",
+              "absent",
+              "AutoLockMass",
+              "calibrate",
+              "collect",
+              "deepCopy",
+              "filepaths",
+              "filepaths<-",
+              "diffreport",
+              "findMZ",
+              "findneutral",
+              "fillPeaks",
+              "fillPeaks.MSW",
+              "fillPeaks.chrom",
+              "findPeaks.centWave",
+              "findPeaks.addPredictedIsotopeFeatures",
+              "findPeaks.centWaveWithPredictedIsotopeROIs",
+              "findPeaks.massifquant",
+              "findPeaks.matchedFilter",
+              "findPeaks.MSW",
+              "findPeaks",
+              "getEIC",
+              "getPeaks",
+              "getScan",
+              "getMsnScan",
+              "getSpec",
+              "getXcmsRaw",
+              "group",
+              "group.density",
+              "group.mzClust",
+              "group.nearest",
+              "groupidx",
+              "groupidx<-",
+              "groupnames",
+              "groups",
+              "groups<-",
+              "groupval",
+              "image",
+              "levelplot",
+              "mslevel",
+              "mzrange",
+              "peaks",
+              "peaks<-",
+              "peakTable",
+              "phenoData",
+              "phenoData<-",
+              "plotChrom",
+              "plotEIC",
+              "plotPeaks",
+              "plotRaw",
+              "plotrt",
+              "plotScan",
+              "plotSpec",
+              "plotSurf",
+              "plotTIC",
+              "plotTree",
+              "present",
+              "profinfo",
+              "profinfo<-",
+              "profMedFilt",
+              "profMethod",
+              "profMethod<-",
+              "profMz",
+              "profRange",
+              "profStep",
+              "profStep<-",
+              "progressCallback",
+              "progressCallback<-",
+              "rawEIC",
+              "rawMat",
+              "retcor",
+              "retcor.peakgroups",
+              "retcor.obiwarp",
+              "revMz",
+              "rtrange",
+              "sampclass",
+              "sampclass<-",
+              "sampnames",
+              "sampnames<-",
+              "scanrange",
+              "specDist",
+              "specDist.cosine",
+              "specDist.meanMZmatch",
+              "specDist.peakCount",
+              "show",
+              "sortMz",
+              "stitch",
+              "updateObject",
+              "write.cdf",
+              "write.mzdata",
+              "write.mzQuantML",
+              "xcmsSource",
+              "loadRaw"
+              )
